@@ -73,58 +73,103 @@ impl GUI {
 	pub fn print(&self, displayed_expression : &String) {
 		match self.phase {
 			0 => {
-				println!("{}{}\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}\n
+						 {}{}\n
+						 {}{}\n
+						 {}{}\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			1 => {
-				println!("{}{}\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}|\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}|\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}\n
+						 {}{}\n
+						 {}{}|\n
+						 {}{}|\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			2 => {
-				println!("{}{}|\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}|\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}|\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}|\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}|\n
+						 {}{}|\n
+						 {}{}|\n
+						 {}{}|\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			3 => {
-				println!("{}{}|----\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}|\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}|\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}|\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}|--\n
+						 {}{}|\n
+						 {}{}|\n
+						 {}{}|\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			4 => {
-				println!("{}{}|----\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}|\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}|\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}|\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}|----\n
+						 {}{}|\n
+						 {}{}|\n
+						 {}{}|\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			5 => {
-				println!("{}{}|----\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}| \\o/\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}|\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}|\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}|----\n
+						 {}{}| \\o/\n
+						 {}{}|\n
+						 {}{}|\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			6 => {
-				println!("{}{}|----\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}| \\o/\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}|   |\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}|\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}|----\n
+						 {}{}| \\o/\n
+						 {}{}|   |\n
+						 {}{}|\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			7 => {
-				println!("{}{}|----\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}| \\o/\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}|   |\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}|  / \\\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}|----\n
+						 {}{}| \\o/\n
+						 {}{}|   |\n
+						 {}{}|  / \\\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			8 => {
-				println!("{}{}|----\r\n", self.first_line, self.ws_buffer[0]);
-				println!("{}{}|   x\r\n", displayed_expression, self.ws_buffer[1]);
-				println!("{}{}|  /|\\\r\n", self.third_line, self.ws_buffer[2]);
-				println!("{}{}|  / \\\r\n", self.fourth_line, self.ws_buffer[3]);
+				println!("
+						 {}{}|----\n
+						 {}{}|   x\n
+						 {}{}|  /|\\\n
+						 {}{}|  / \\\r",
+					self.first_line, self.ws_buffer[0],
+					displayed_expression, self.ws_buffer[1],
+					self.third_line, self.ws_buffer[2],
+					self.fourth_line, self.ws_buffer[3]);
 			},
 			_ => println!("Something went wrong!"),
 		}
