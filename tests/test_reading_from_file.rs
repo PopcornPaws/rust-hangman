@@ -51,7 +51,7 @@ fn read_from_local_file() {
 
 	let state_length = state.len();
 
-	let mut mask : Vec<i32> = generate_random_mask_vector(state_length);
+	let mut mask : Vec<u32> = generate_random_mask_vector(state_length);
 
 	if !mask.contains(&7) {
 		mask.push(7) // add 'u' to the mask as well (i.e. delete from state name)
@@ -79,7 +79,7 @@ fn read_random_line_from_local_file() {
 
 	let state : String = generate_random_line_from_file(&path_to_file);
 
-	let mask : Vec<i32> = generate_random_mask_vector(state.len());
+	let mask : Vec<u32> = generate_random_mask_vector(state.len());
 
 	let random_line = Expression::init(&state, &mask);
 

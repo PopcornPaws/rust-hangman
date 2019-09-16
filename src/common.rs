@@ -2,14 +2,14 @@ use rand::{thread_rng, Rng};
 use std::fs;
 use std::path::PathBuf;
 
-pub fn generate_random_mask_vector(size_of_string : usize) -> Vec<i32> {
+pub fn generate_random_mask_vector(size_of_string : usize) -> Vec<u32> {
 	let mut rng = thread_rng();
-	let mut mask : Vec<i32> = Vec::new();
+	let mut mask : Vec<u32> = Vec::new();
 
 	for _ in 0..size_of_string / 2 {
-		let mut random_num = rng.gen_range(0, size_of_string as i32);
+		let mut random_num = rng.gen_range(0, size_of_string as u32);
 		while mask.contains(&mut random_num) {
-			random_num = rng.gen_range(0, size_of_string as i32);
+			random_num = rng.gen_range(0, size_of_string as u32);
 		}
 		mask.push(random_num);
 	}

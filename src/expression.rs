@@ -6,7 +6,7 @@ pub struct Expression<'a> {
 }
 
 impl<'a> Expression<'a> {
-	pub fn init(exp : &'a String, mask : &Vec<i32>) -> Self {
+	pub fn init(exp : &'a String, mask : &Vec<u32>) -> Self {
 		let mut expression = Expression {
 			random_line : exp,
 			displayed_line : exp.clone(),
@@ -17,11 +17,11 @@ impl<'a> Expression<'a> {
 		expression
 	}
 
-	fn mask_display(&mut self, mask : &Vec<i32>) {
+	fn mask_display(&mut self, mask : &Vec<u32>) {
 		// iterate through line characters and replace given indices
 		self.displayed_line = self.displayed_line
 			.char_indices()
-			.map(|(i, x)| if mask.contains(&(i as i32)) { '_' } else { x })
+			.map(|(i, x)| if mask.contains(&(i as u32)) { '_' } else { x })
 			.collect()
 	}
 
@@ -72,7 +72,7 @@ mod tests {
 	#[test]
 	fn create_line_struct() {
 		let state = String::from("Alabama");
-		let mask : Vec<i32> = vec![0,3,6];
+		let mask : Vec<u32> = vec![0,3,6];
 		let mut exp = Expression::init(&state, &mask);
 
 		assert_eq!(exp.get_len(), state.len());
@@ -84,15 +84,15 @@ mod tests {
 	#[test]
 	fn create_random_line_struct() {
 		let state = String::from("Alabama");
-		let mut mask : Vec<i32> = Vec::new();
+		let mut mask : Vec<u32> = Vec::new();
 
 		let line_length = state.len();
 		let mut rng = thread_rng();
 
 		for _ in 0..line_length / 2 {
-			let mut random_num  = rng.gen_range(0, line_length as i32);
+			let mut random_num  = rng.gen_range(0, line_length as u32);
 			while mask.contains(&mut random_num) {
-				random_num = rng.gen_range(0, line_length as i32);
+				random_num = rng.gen_range(0, line_length as u32);
 			}
 			mask.push(random_num); 
 		}
@@ -102,7 +102,7 @@ mod tests {
 		let mut displayed_line_iterator = exp.get_displayed_line().char_indices();
 
 		for i in 0..line_length {
-			if mask.contains(&(i as i32)) {
+			if mask.contains(&(i as u32)) {
 				assert_eq!(Some((i, '_')), displayed_line_iterator.next())
 			} else {
 				assert_ne!(Some((i, '_')), displayed_line_iterator.next())
