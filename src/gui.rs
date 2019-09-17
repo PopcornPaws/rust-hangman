@@ -74,9 +74,9 @@ impl GUI {
 		match self.phase {
 			0 => {
 				println!("
-						 {}{}\n
-						 {}{}\n
-						 {}{}\n
+						 {}{}
+						 {}{}
+						 {}{}
 						 {}{}\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
@@ -85,9 +85,9 @@ impl GUI {
 			},
 			1 => {
 				println!("
-						 {}{}\n
-						 {}{}\n
-						 {}{}|\n
+						 {}{}
+						 {}{}
+						 {}{}|
 						 {}{}|\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
@@ -96,9 +96,9 @@ impl GUI {
 			},
 			2 => {
 				println!("
-						 {}{}|\n
-						 {}{}|\n
-						 {}{}|\n
+						 {}{}|
+						 {}{}|
+						 {}{}|
 						 {}{}|\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
@@ -107,9 +107,9 @@ impl GUI {
 			},
 			3 => {
 				println!("
-						 {}{}|--\n
-						 {}{}|\n
-						 {}{}|\n
+						 {}{}|----
+						 {}{}|
+						 {}{}|
 						 {}{}|\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
@@ -118,9 +118,9 @@ impl GUI {
 			},
 			4 => {
 				println!("
-						 {}{}|----\n
-						 {}{}|\n
-						 {}{}|\n
+						 {}{}|--------
+						 {}{}|
+						 {}{}|
 						 {}{}|\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
@@ -129,9 +129,9 @@ impl GUI {
 			},
 			5 => {
 				println!("
-						 {}{}|----\n
-						 {}{}| \\o/\n
-						 {}{}|\n
+						 {}{}|--------
+						 {}{}|      \\o/
+						 {}{}|
 						 {}{}|\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
@@ -140,9 +140,9 @@ impl GUI {
 			},
 			6 => {
 				println!("
-						 {}{}|----\n
-						 {}{}| \\o/\n
-						 {}{}|   |\n
+						 {}{}|--------
+						 {}{}|      \\o/
+						 {}{}|       |
 						 {}{}|\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
@@ -151,10 +151,10 @@ impl GUI {
 			},
 			7 => {
 				println!("
-						 {}{}|----\n
-						 {}{}| \\o/\n
-						 {}{}|   |\n
-						 {}{}|  / \\\r",
+						 {}{}|--------
+						 {}{}|      \\o/
+						 {}{}|       | 
+						 {}{}|      / \\\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
 					self.third_line, self.ws_buffer[2],
@@ -162,10 +162,10 @@ impl GUI {
 			},
 			8 => {
 				println!("
-						 {}{}|----\n
-						 {}{}|   x\n
-						 {}{}|  /|\\\n
-						 {}{}|  / \\\r",
+						 {}{}|--------
+						 {}{}|       x
+						 {}{}|      /|\\
+						 {}{}|      / \\\r",
 					self.first_line, self.ws_buffer[0],
 					displayed_expression, self.ws_buffer[1],
 					self.third_line, self.ws_buffer[2],

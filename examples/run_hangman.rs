@@ -13,26 +13,25 @@ fn main() {
 
 	gui.print(&(random_line.get_displayed_line()));
 
-	//add loop
-	let mut user_input = String::new();
-	io::stdin().read_line(&mut user_input)
-		.expect("Failed to read input");
+	loop {
+		if random_line.check_if_solved() {
+			println!("You win!\n");
+			break;
+		}
 
-	let user_input : char = user_input.trim().parse()
-		.expect("Please enter a character!");
+		let mut user_input = String::new();
+		io::stdin().read_line(&mut user_input)
+			.expect("Failed to read input!");
+		let user_input : char = match user_input.trim().parse() {
+			Ok(ch) => ch,
+			Err(_) => continue,
+		};
 
-	while !random_line.check_if_solved() &&
-		gui.update(&user_input, random_line.update_displayed_line(&user_input)) {
+		if gui.update(&user_input, random_line.update_displayed_line(&user_input)) {
 			gui.print(&(random_line.get_displayed_line()));
-			let mut user_input = String::new();
-			io::stdin().read_line(&mut user_input)
-				.expect("Failed to read input");
-			let user_input : char = user_input.trim().parse()
-				.expect("Please enter a character!");
-	}
-	if random_line.check_if_solved() {
-		println!("You win!\n");
-	} else if gui.update(&user_input, true) {
-		println!("You lost!\n")
+		} else {
+			println!("You lost!\n");
+			break;
+		}
 	}
 }
